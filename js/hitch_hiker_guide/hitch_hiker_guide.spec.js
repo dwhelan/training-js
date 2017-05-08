@@ -57,7 +57,7 @@ describe('The meaning of life', function () {
 
     it("with sinon mock logger we can test logging with less fuss", function () {
       var logger = new Logger();
-      var log = sinon.mock(logger, "log");
+      var log = sinon.mock(logger);
       var guide = new Guide(logger);
       log.expects("log").withArgs("Calculating the meaning of life, the universe and everything");
 

@@ -1,8 +1,26 @@
 var calculate = require('./stringCalculator');
-var expect = require("expect");
+var expect = require("chai").expect;
 
 describe('String Calculator', function () {
-  xit('should do something', function () {
-    expect("the answer").toBe("42");
+  it('should do something', function () {
+    expect("the answer").to.equal("42");
   });
 });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

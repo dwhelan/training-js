@@ -7,7 +7,7 @@ const sinon = require('sinon');
 
 require('should');
 
-xdescribe('The meaning of life', function () {
+describe('The meaning of life', function () {
 
   describe('the answer', function () {
     xit('with a real logger - the logger will throw!', function () {

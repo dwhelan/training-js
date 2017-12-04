@@ -25,7 +25,7 @@
   "scripts": {
     "cover": "nyc yarn test",
     "lint": "eslint .",
-    "test": "mocha --colors",
+    "test": "mocha --colors fizz-buzz",
     "test-all": "npm run test bowling fizz-buzz gilded-rose bartender hitch-hiker-guide roman-numeral-calculator string-calculator trivia-scorer",
     "watch": "npm-watch"
   },
@@ -35,5 +35,7 @@
   },
   "author": "Declan Whelan",
   "license": "MIT",
-  "dependencies": {}
+  "dependencies": {
+    "testdouble": "^2.1.2"
+  }
 }

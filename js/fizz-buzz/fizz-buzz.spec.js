@@ -1,10 +1,10 @@
 'use strict';
 
-//const fizzBuzz = require('./fizz-buzz');
+const fizzBuzz = require('./fizz-buzz');
 require('should');
 
-xdescribe('FizzBuzz', function () {
-  it('should do something', function () {
-    'the answer'.should.equal('42');
+describe('FizzBuzz',  () => {
+  it('should do something', () => {
+    true.should.equal(true);
   });
 });

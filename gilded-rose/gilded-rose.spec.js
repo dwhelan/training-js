@@ -1,13 +1,13 @@
 'use strict';
 
 require('approvals').mocha();
-var os = require('os');
-var GildedRose = require('./gilded-rose');
+let os = require('os');
+let GildedRose = require('./gilded-rose');
 
 xdescribe('Gilded Rose', function() {
   it('should update items', function() {
-    var gildedRose = new GildedRose();
-    var items = gildedRose.items;
+    const gildedRose = new GildedRose();
+    const items = gildedRose.items;
 
     items.push(new gildedRose.Item('+5 Dexterity Vest', 10, 20));
     items.push(new gildedRose.Item('Aged Brie', 2, 50 ));
@@ -26,7 +26,7 @@ xdescribe('Gilded Rose', function() {
 
     gildedRose.update_quality();
 
-    var strings = JSON.stringify(items).replace(/[^ \-:,\w\s]/g, '').replace(/,name/g, '\nname');
+    const strings = JSON.stringify(items).replace(/[^ \-:,\w\s]/g, '').replace(/,name/g, '\nname');
 
     this.verify(strings + os.EOL);
   });

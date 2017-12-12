@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/dwhelan/training.svg?branch=master)](https://travis-ci.org/dwhelan/training)
+[![Build Status](https://travis-ci.org/dwhelan/training-js.svg?branch=master)](https://travis-ci.org/dwhelan/training-js)
 
 # Agile Engineering Training
 
@@ -31,13 +31,10 @@ The following `Node.js` versions are supported:
 - 3.x
 - 4.x
 - 5.x
-- 6.0
-- 6.1
-- 6.2
-- 6.3
-- 6.4
-- 6.5
-- 6.6
+- 6.x
+- 7.x
+- 8.x
+- 9.x
 
 Other versions will likely work but have not been tested.
 

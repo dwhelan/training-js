@@ -4,10 +4,10 @@
 
 require('should');
 
-xdescribe('Bowling', function () {
+xdescribe('Bowling', () =>{
   //let game = new Bowling();
 
-  it('should do something', function () {
+  it('should do something', () => {
     'the answer'.should.equal(42);
   });
 });

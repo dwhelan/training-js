@@ -18,10 +18,10 @@
     "reporter": ["lcov", "text"]
   },
   "scripts": {
-    "cover": "nyc yarn test",
+    "cover": "nyc npm test",
     "lint": "eslint .",
     "test": "mocha",
-    "test-all": "yarn test bowling fizz-buzz gilded-rose bartender hitch-hiker-guide roman-numeral-calculator string-calculator trivia-scorer",
+    "test-all": "npm test bowling fizz-buzz gilded-rose bartender hitch-hiker-guide roman-numeral-calculator string-calculator trivia-scorer",
     "watch": "mocha --watch"
   },
   "repository": {

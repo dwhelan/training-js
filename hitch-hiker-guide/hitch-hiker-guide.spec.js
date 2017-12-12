@@ -7,10 +7,10 @@ const sinon = require('sinon');
 
 require('should');
 
-xdescribe('The meaning of life', function () {
+describe('The meaning of life', () => {
 
-  describe('the answer', function () {
-    xit('with a real logger - the logger will throw!', function () {
+  describe('the answer', () => {
+    xit('with a real logger - the logger will throw!', () => {
       // Arrange
       const guide = new Guide(new Logger());
 
@@ -21,7 +21,7 @@ xdescribe('The meaning of life', function () {
       answer.should.equal('42');
     });
 
-    it('with a null logger we can test the answer', function () {
+    it('with a null logger we can test the answer', () => {
       const guide = new Guide(new NullLogger());
 
       const answer = guide.answer();
@@ -31,11 +31,11 @@ xdescribe('The meaning of life', function () {
   });
 
   describe('logging', function () {
-    it('with a custom spy we can test logging', function () {
-      var SpyLogger = function () {
+    it('with a custom spy we can test logging', () => {
+      const SpyLogger = function () {
         this.message = '';
 
-        this.log = function(message) {
+        this.log = function (message) {
           this.message = message;
         };
       };
@@ -48,7 +48,7 @@ xdescribe('The meaning of life', function () {
       logger.message.should.equal('Calculating the meaning of life, the universe and everything');
     });
 
-    it('with sinon stub logger we can test logging with less fuss', function () {
+    it('with sinon stub logger we can test logging with less fuss', () => {
       const logger = new Logger();
       const log = sinon.stub(logger, 'log');
       const guide = new Guide(logger);
@@ -58,7 +58,7 @@ xdescribe('The meaning of life', function () {
       sinon.assert.calledWith(log, 'Calculating the meaning of life, the universe and everything');
     });
 
-    it('with sinon mock logger we can test logging with less fuss', function () {
+    it('with sinon mock logger we can test logging with less fuss', () => {
       const logger = new Logger();
       const log = sinon.mock(logger, 'log');
       const guide = new Guide(logger);

@@ -1,6 +1,6 @@
 'use strict';
 
-module.exports = class Bowling {
+module.exports = class {
   roll() {
   }
 

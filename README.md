@@ -28,13 +28,12 @@ These katas require that `Node.js` be installed. Go to the [node site](https://n
 If you are running on Windows you will need to restart your computer in order for `Node.js` to work. However, `yarn` is used in this repo so please install `yarn` as described in [yarn install instructions](https://yarnpkg.com/en/docs/install).
 
 The following `Node.js` versions are supported:
-- 3.x
-- 4.x
-- 5.x
-- 6.x
-- 7.x
-- 8.x
-- 9.x
+- 4
+- 5
+- 6
+- 7
+- 8
+- 9
 
 Other versions will likely work but have not been tested.
 

@@ -1,5 +1,6 @@
 'use strict';
 
+
 module.exports = class {
   constructor(logger) {
     this.logger = logger;

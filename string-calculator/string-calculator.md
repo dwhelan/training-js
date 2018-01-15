@@ -1,7 +1,7 @@
 # String Calculator
 Create an `add(input : string) : int` method.
 
-It should allow 0, 1 or 2 numbers, separated with commas in `input` and should return the sum of those numbers.
+It should allow 0, 1 or 2 integers, separated with commas in `input` and should return the sum of those integers.
 
 Some examples:
 

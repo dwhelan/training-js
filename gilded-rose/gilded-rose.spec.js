@@ -4,7 +4,7 @@ require('approvals').mocha();
 var os = require('os');
 var GildedRose = require('./gilded-rose');
 
-xdescribe('Gilded Rose', function() {
+describe('Gilded Rose', function() {
   it('should update items', function() {
     var gildedRose = new GildedRose();
     var items = gildedRose.items;

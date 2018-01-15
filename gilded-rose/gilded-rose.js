@@ -3,59 +3,46 @@
 
 module.exports = function () {
   this.Item = function (name, sell_in, quality) {
-    this.name = name;
+    this.name    = name;
     this.sell_in = sell_in;
     this.quality = quality;
   };
 
   this.items = [];
 
-  this.update_quality = function () {
-    var items = this.items;
-    for (var i = 0; i < items.length; i++) {
-      if (items[i].name != 'Aged Brie' && items[i].name != 'Backstage passes to a TAFKAL80ETC concert') {
-        if (items[i].quality > 0) {
-          if (items[i].name != 'Sulfuras, Hand of Ragnaros') {
-            items[i].quality = items[i].quality - 1
-          }
+  this.update_quality = () => this.items.forEach(item => update(item));
+
+  function update(item) {
+    function incrementQuality(amount = 1) { item.quality = Math.min(item.quality + amount, 50);}
+    function decrementQuality()           { item.quality = Math.max(item.quality - 1, 0);}
+    function decrementSellIn()            { item.sell_in -= 1};
+    function whenExpired(callback)        { if (item.sell_in < 0) callback();}
+
+    switch (item.name) {
+      case 'Sulfuras, Hand of Ragnaros':
+        // nothing ever changes with legendary items
+        break;
+
+      case 'Backstage passes to a TAFKAL80ETC concert':
+        switch(true) {
+          case item.sell_in < 6:  incrementQuality(3); break;
+          case item.sell_in < 11: incrementQuality(2); break;
+          default:                incrementQuality(1); break;
         }
-      } else {
-        if (items[i].quality < 50) {
-          items[i].quality = items[i].quality + 1
-          if (items[i].name == 'Backstage passes to a TAFKAL80ETC concert') {
-            if (items[i].sell_in < 11) {
-              if (items[i].quality < 50) {
-                items[i].quality = items[i].quality + 1
-              }
-            }
-            if (items[i].sell_in < 6) {
-              if (items[i].quality < 50) {
-                items[i].quality = items[i].quality + 1
-              }
-            }
-          }
-        }
-      }
-      if (items[i].name != 'Sulfuras, Hand of Ragnaros') {
-        items[i].sell_in = items[i].sell_in - 1;
-      }
-      if (items[i].sell_in < 0) {
-        if (items[i].name != 'Aged Brie') {
-          if (items[i].name != 'Backstage passes to a TAFKAL80ETC concert') {
-            if (items[i].quality > 0) {
-              if (items[i].name != 'Sulfuras, Hand of Ragnaros') {
-                items[i].quality = items[i].quality - 1
-              }
-            }
-          } else {
-            items[i].quality = items[i].quality - items[i].quality
-          }
-        } else {
-          if (items[i].quality < 50) {
-            items[i].quality = items[i].quality + 1
-          }
-        }
-      }
+        decrementSellIn();
+        whenExpired(() => item.quality = 0);
+        break;
+
+      case 'Aged Brie':
+        incrementQuality();
+        decrementSellIn();
+        whenExpired(() => incrementQuality());
+        break;
+
+      default:
+        decrementQuality();
+        decrementSellIn();
+        whenExpired(() => decrementQuality());
     }
   }
 };

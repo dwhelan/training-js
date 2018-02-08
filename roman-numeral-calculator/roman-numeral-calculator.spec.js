@@ -24,8 +24,6 @@ describe('Roman Numeral Calculator', function () {
     calculate(10).should.equal('X');
   });
 
-
-
   it('40 should return XL', function () {
     calculate(40).should.equal('XL');
   });

@@ -1,12 +1,14 @@
 'use strict';
 
 module.exports = number => {
-  let isBuzzNumber = () => number % 5 === 0;
-  let isFizzNumber = () => number % 3 === 0;
+  let isDivisibleBy = function (modulo) {
+    return number % modulo === 0;
+  };
 
-  if (isFizzNumber() && isBuzzNumber()) return "fizzbuzz";
-  if (isBuzzNumber()) return "buzz";
-  if (isFizzNumber()) return "fizz";
+  let result = "";
 
-  return number.toString();
+  if (isDivisibleBy(3))  { result += 'fizz'; }
+  if (isDivisibleBy(5))  { result += 'buzz'; }
+
+  return result === '' ? number.toString() : result;
 };
